@@ -2,17 +2,27 @@
    CSS Variables & Tokens
    ========================================================================== */
 :root {
-    --bg-color: #1c1c1c;
-    --text-color: #f0f0f0;
-    --text-muted: #a0a0a0;
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --text-muted: #6b7280;
     --primary-color: #00d2ff;
     --secondary-color: #3a7bd5;
     --accent-color: #ff007f;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --card-hover-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(0, 0, 0, 0.02);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --card-hover-bg: rgba(0, 0, 0, 0.06);
     --nav-height: 80px;
     --max-width: 1200px;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* ==========================================================================
