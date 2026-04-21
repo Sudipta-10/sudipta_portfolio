@@ -525,27 +525,36 @@ main {
     content: '';
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 20px;
-    width: 2px;
+    width: 3px;
+    height: 100px;
     background: linear-gradient(
-        180deg, 
-        transparent, 
+        to bottom, 
+        rgba(0, 210, 255, 0), 
         var(--primary-color), 
-        transparent
+        rgba(0, 210, 255, 0)
     );
-    background-size: 100% 150px;
-    background-repeat: no-repeat;
     animation: classyBeam 3s linear infinite;
     z-index: 1;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px var(--primary-color));
+    opacity: 0;
 }
 
 @keyframes classyBeam {
     0% {
-        background-position: 0 -150px;
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
     }
     100% {
-        background-position: 0 1500px;
+        transform: translateY(1500px);
+        opacity: 0;
     }
 }
 
