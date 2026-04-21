@@ -516,36 +516,26 @@ main {
     top: 0;
     bottom: 0;
     left: 20px;
-    width: 2px;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.timeline::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, var(--primary-color), transparent);
-    animation: flowLine 3s linear infinite;
-    z-index: 0;
+    width: 3px;
+    background: linear-gradient(
+        180deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        var(--primary-color) 50%, 
+        var(--secondary-color) 80%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 100% 300%;
+    animation: flowLine 4s ease-in-out infinite alternate;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
 }
 
 @keyframes flowLine {
     0% {
-        top: 0;
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
+        background-position: 0% 0%;
     }
     100% {
-        top: calc(100% - 100px);
-        opacity: 0;
+        background-position: 0% 100%;
     }
 }
 
@@ -571,27 +561,6 @@ main {
     background: var(--primary-color);
     border: 3px solid var(--bg-color);
     box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.2);
-}
-
-.timeline-logo {
-    position: absolute;
-    left: -46px;
-    top: 22px;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #fff;
-    padding: 3px;
-    border: 3px solid var(--bg-color);
-    box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.5), 0 0 15px rgba(0, 210, 255, 0.3);
-    z-index: 1;
-    object-fit: contain;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-item:hover .timeline-logo {
-    transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.7), 0 0 25px rgba(0, 210, 255, 0.6);
 }
 
 .timeline-content h3 {
