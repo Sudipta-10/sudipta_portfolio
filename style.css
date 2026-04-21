@@ -221,7 +221,7 @@ main {
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: white;
+    color: var(--primary-color);
 }
 
 .nav-links li a:hover::after,
@@ -351,7 +351,7 @@ main {
     font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, #fff, #a0a0a0);
+    background: linear-gradient(90deg, var(--text-color), var(--primary-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -458,7 +458,7 @@ main {
 
 .info-item span {
     font-weight: 600;
-    color: #fff;
+    color: var(--text-color);
     margin-right: 0.5rem;
 }
 
@@ -481,7 +481,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .skill-category h3 i {
@@ -506,7 +506,7 @@ main {
 
 .skill-list li:hover {
     background: rgba(0, 210, 255, 0.1);
-    color: #fff;
+    color: var(--text-color);
     border-color: var(--primary-color);
     transform: translateY(-2px);
 }
@@ -594,7 +594,7 @@ main {
 
 .timeline-content h3 {
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
@@ -643,7 +643,7 @@ main {
 .project-info h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .tech-stack {
@@ -663,7 +663,7 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #fff;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s ease;
@@ -696,7 +696,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .col-title i {
@@ -712,7 +712,7 @@ main {
 .cert-item h4 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .cert-item p {
@@ -739,7 +739,7 @@ main {
 .contact-info h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .contact-info>p {
@@ -789,7 +789,7 @@ main {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--glass-border);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-color);
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -837,7 +837,7 @@ footer {
 .footer-logo {
     font-size: 2rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .footer-logo span {
