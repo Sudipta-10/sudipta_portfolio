@@ -516,26 +516,37 @@ main {
     top: 0;
     bottom: 0;
     left: 20px;
-    width: 3px;
-    background: linear-gradient(
-        180deg, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        var(--primary-color) 50%, 
-        var(--secondary-color) 80%,
-        rgba(255, 255, 255, 0.05) 100%
-    );
-    background-size: 100% 300%;
-    animation: flowLine 4s ease-in-out infinite alternate;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    width: 2px;
+    background: var(--glass-border);
+    border-radius: 2px;
 }
 
-@keyframes flowLine {
+.timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom, 
+        transparent 0%, 
+        var(--primary-color) 50%, 
+        transparent 100%
+    );
+    background-size: 100% 25%;
+    background-repeat: no-repeat;
+    animation: classyBeam 3.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+    border-radius: 2px;
+    box-shadow: 0 0 12px 2px rgba(0, 210, 255, 0.6);
+}
+
+@keyframes classyBeam {
     0% {
-        background-position: 0% 0%;
+        background-position: 0% -30%;
     }
     100% {
-        background-position: 0% 100%;
+        background-position: 0% 130%;
     }
 }
 
