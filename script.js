@@ -185,21 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.angleOffset = (Math.random() - 0.5) * 0.005; // Slight swirling orbit
             }
             update() {
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let dist = Math.sqrt(dx*dx + dy*dy);
-                // Repel radius roughly 200px
-                let force = Math.max(0, 200 - dist) / 200;
-                
-                if (dist < 200) {
-                    this.x -= (dx / dist) * force * 12; // Push away strongly
-                    this.y -= (dy / dist) * force * 12;
-                } else {
-                    // Elastic return to base position smoothly
-                    this.x += (this.baseX - this.x) * 0.05;
-                    this.y += (this.baseY - this.y) * 0.05;
-                }
-
                 // Slow rotation/movement around the center
                 let cx = width/2;
                 let cy = height/2;
@@ -212,6 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Keep the dashed particle oriented towards center
                 this.angle = Math.atan2(cy - this.y, cx - this.x);
+
+                // Continuous spring-back to base location
+                this.x += (this.baseX - this.x) * 0.1;
+                this.y += (this.baseY - this.y) * 0.1;
+
+                // Repel strongly away from the mouse (creates the "warp" effect)
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let dist = Math.sqrt(dx*dx + dy*dy);
+                
+                if (dist < 250 && dist > 0.1) {
+                    let force = (250 - dist) / 250;
+                    // Massive warp acceleration closer to the mouse
+                    let warp = force * 50; 
+                    this.x -= (dx / dist) * warp;
+                    this.y -= (dy / dist) * warp;
+                }
             }
             draw() {
                 ctx.beginPath();
