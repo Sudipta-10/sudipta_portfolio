@@ -524,29 +524,36 @@ main {
 .timeline::after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: -150px;
     left: 20px;
-    width: 2px;
+    width: 3px;
+    height: 150px;
     background: linear-gradient(
         to bottom, 
-        transparent 0%, 
-        var(--primary-color) 50%, 
-        transparent 100%
+        rgba(0, 210, 255, 0), 
+        var(--primary-color), 
+        rgba(0, 210, 255, 0)
     );
-    background-size: 100% 25%;
-    background-repeat: no-repeat;
-    animation: classyBeam 3.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+    animation: classyBeam 3s linear infinite;
     border-radius: 2px;
-    box-shadow: 0 0 12px 2px rgba(0, 210, 255, 0.6);
+    z-index: 0;
+    filter: drop-shadow(0 0 8px var(--primary-color));
 }
 
 @keyframes classyBeam {
     0% {
-        background-position: 0% -30%;
+        top: -150px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
     }
     100% {
-        background-position: 0% 130%;
+        top: 100%;
+        opacity: 0;
     }
 }
 
