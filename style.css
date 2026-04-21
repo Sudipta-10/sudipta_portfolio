@@ -517,7 +517,35 @@ main {
     bottom: 0;
     left: 20px;
     width: 2px;
-    background: var(--glass-border);
+    background: linear-gradient(180deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+    background-size: 100% 200%;
+    animation: flowLine 3s linear infinite;
+}
+
+@keyframes flowLine {
+    0% { background-position: 0% -200%; }
+    100% { background-position: 0% 0%; }
+}
+
+.timeline-logo {
+    position: absolute;
+    left: -48px;
+    top: 17px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.3), 0 0 10px rgba(0, 210, 255, 0.4);
+    z-index: 1;
+    background-color: #fff;
+    object-fit: contain;
+    padding: 3px;
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-logo {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.6), 0 0 20px rgba(0, 210, 255, 0.8);
 }
 
 .timeline-item {
