@@ -780,6 +780,7 @@ main {
 .info-items .item i {
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
     background: rgba(0, 210, 255, 0.1);
     color: var(--primary-color);
     border-radius: 50%;
@@ -792,6 +793,8 @@ main {
 .info-items .item p {
     color: var(--text-muted);
     font-size: 1rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .contact-form {
@@ -966,5 +969,10 @@ footer .social-links a:hover {
 
     .social-links {
         justify-content: center;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 }
