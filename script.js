@@ -151,5 +151,30 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--glass-bg-hover', color.hover);
     });
 
+    /* ==========================================================================
+       Dynamic Sticky Scroll for Stacked Cards
+       ========================================================================== */
+    function adjustStickySections() {
+        const sections = document.querySelectorAll('section');
+        const viewportHeight = window.innerHeight;
+        
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            if (sectionHeight > viewportHeight) {
+                // If section is taller than screen, let it scroll to the bottom before sticking
+                const offset = viewportHeight - sectionHeight;
+                section.style.top = `${offset}px`;
+            } else {
+                // If section fits on screen, stick it to the top (with a small margin to show the card layer if wanted)
+                // Sticking exactly at 0 to hide content below cleanly
+                section.style.top = '0px'; 
+            }
+        });
+    }
+
+    // Run on load and resize
+    // We use setTimeout to ensure images/layout are fully rendered before calculating height
+    setTimeout(adjustStickySections, 100);
+    window.addEventListener('resize', adjustStickySections);
 
 });
