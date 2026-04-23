@@ -177,11 +177,12 @@ main {
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
 }
 
@@ -250,8 +251,9 @@ main {
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: var(--primary-color);
+    height: 3px;
+    background: linear-gradient(to right, #f97316, #10b981);
+    border-radius: 2px;
     transition: width 0.3s ease;
 }
 
