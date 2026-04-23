@@ -19,13 +19,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close menu when a link is clicked
+    // Close menu when a link is clicked and smooth scroll to correct sticky offset
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            // Prevent default anchor jump because sticky positioning messes it up
+            e.preventDefault();
+
+            // Close mobile menu
             navLinksContainer.classList.remove('active');
             const icon = hamburger.querySelector('i');
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
+
+            // Find target section
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                // Since previous sections are "stuck" at the top of the screen, 
+                // the browser thinks they are already in view. We must temporarily 
+                // disable sticky positioning to find their true mathematical offset in the document.
+                const allSections = document.querySelectorAll('section');
+                
+                // Temporarily revert to standard flow
+                allSections.forEach(sec => sec.style.position = 'static');
+                
+                // Calculate the true offset from the top of the document
+                const trueOffsetTop = targetSection.offsetTop;
+                
+                // Restore sticky positioning (reverts to CSS stylesheet rules)
+                allSections.forEach(sec => sec.style.position = '');
+
+                // Scroll exactly to the true mathematical offset
+                window.scrollTo({
+                    top: trueOffsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
