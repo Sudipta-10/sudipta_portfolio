@@ -361,10 +361,32 @@ main {
     font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--text-color), var(--primary-color));
+    background: linear-gradient(
+        90deg, 
+        var(--text-color) 0%, 
+        var(--primary-color) 25%, 
+        #8b5cf6 50%, 
+        var(--primary-color) 75%, 
+        var(--text-color) 100%
+    );
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: flowColor 6s linear infinite;
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    display: inline-block;
+}
+
+.name:hover {
+    transform: scale(1.02);
+    letter-spacing: 2px;
+}
+
+@keyframes flowColor {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .title {
@@ -829,7 +851,7 @@ main {
    Footer
    ========================================================================== */
 footer {
-    background: #000;
+    background: transparent;
     padding: 3rem 2rem;
     border-top: 1px solid var(--glass-border);
     text-align: center;
