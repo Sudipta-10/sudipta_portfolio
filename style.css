@@ -184,10 +184,18 @@ main {
 .logo {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary-color);
 }
 
 .logo img {
-    height: 45px;
+    height: 40px;
     width: auto;
     mix-blend-mode: multiply;
 }
@@ -848,10 +856,19 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.footer-logo span {
+    color: var(--primary-color);
 }
 
 .footer-logo img {
-    height: 60px;
+    height: 50px;
     width: auto;
     filter: invert(1);
     mix-blend-mode: screen;
