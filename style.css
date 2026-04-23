@@ -177,9 +177,9 @@ main {
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
@@ -193,6 +193,7 @@ main {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    position: relative;
 }
 
 .logo {
@@ -205,15 +206,40 @@ main {
     color: var(--primary-color);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-cta {
+    background: #000000;
+    color: #ffffff !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(246, 113, 18, 0.3);
 }
 
 .nav-links li a {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
     transition: color 0.3s ease;
     position: relative;
 }
