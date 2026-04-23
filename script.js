@@ -151,16 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--glass-bg-hover', color.hover);
     });
 
-    /* ==========================================================================
-       Cursor Glow Effect
-       ========================================================================== */
-    const cursorGlow = document.querySelector('.cursor-glow');
-    if (cursorGlow) {
-        document.addEventListener('mousemove', (e) => {
-            requestAnimationFrame(() => {
-                // Subtract 200 to center the 400x400px glow
-                cursorGlow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
-            });
-        });
-    }
+
 });
