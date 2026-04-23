@@ -866,7 +866,7 @@ footer {
 .footer-logo img {
     height: 50px;
     width: auto;
-    filter: invert(1);
+    filter: grayscale(1) invert(1) brightness(2);
     mix-blend-mode: screen;
 }
 
