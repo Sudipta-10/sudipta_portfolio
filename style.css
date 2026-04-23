@@ -851,10 +851,11 @@ main {
    Footer
    ========================================================================== */
 footer {
-    background: transparent;
-    padding: 3rem 2rem;
-    border-top: 1px solid var(--glass-border);
+    background: #111827; /* Deep slate dark background */
+    padding: 4rem 2rem;
+    border-top: 4px solid var(--primary-color);
     text-align: center;
+    position: relative;
 }
 
 .footer-content {
@@ -867,9 +868,10 @@ footer {
 }
 
 .footer-logo {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: var(--text-color);
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
 .footer-logo span {
@@ -877,8 +879,21 @@ footer {
 }
 
 .footer-content p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    color: #9ca3af;
+    font-size: 0.95rem;
+}
+
+footer .social-links a {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .social-links a:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(246, 113, 18, 0.3);
 }
 
 /* ==========================================================================
