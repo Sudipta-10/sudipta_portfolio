@@ -137,4 +137,38 @@ document.addEventListener('DOMContentLoaded', () => {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
+
+    /* ==========================================================================
+       Apply Unique Colors to Cards
+       ========================================================================== */
+    const cards = document.querySelectorAll('.glass-card');
+    const lightColors = [
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(246, 113, 18, 0.15))', hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(246, 113, 18, 0.3))' }, // Orange
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 210, 255, 0.15))',  hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(0, 210, 255, 0.3))' },  // Light Blue
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(16, 185, 129, 0.15))', hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(16, 185, 129, 0.3))' }, // Emerald Green
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(139, 92, 246, 0.15))', hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(139, 92, 246, 0.3))' }, // Purple
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(236, 72, 153, 0.15))', hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(236, 72, 153, 0.3))' }, // Pink
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(250, 204, 21, 0.15))', hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(250, 204, 21, 0.3))' }, // Yellow
+        { bg: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(6, 182, 212, 0.15))',   hover: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(6, 182, 212, 0.3))' }   // Cyan
+    ];
+    
+    cards.forEach((card, index) => {
+        // Use modulus to cycle through colors if there are more cards than colors
+        const color = lightColors[index % lightColors.length];
+        card.style.setProperty('--glass-bg', color.bg);
+        card.style.setProperty('--glass-bg-hover', color.hover);
+    });
+
+    /* ==========================================================================
+       Cursor Glow Effect
+       ========================================================================== */
+    const cursorGlow = document.querySelector('.cursor-glow');
+    if (cursorGlow) {
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                // Subtract 200 to center the 400x400px glow
+                cursorGlow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
+            });
+        });
+    }
 });
